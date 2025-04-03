@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import random
-import matplotlib.pyplot as plt
 import seaborn as sns
 from wordcloud import WordCloud
 import cv2
@@ -12,6 +11,12 @@ import warnings
 import base64
 from io import BytesIO
 
+
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
+    import matplotlib.pyplot as plt # Import again after installation
 # Suppress warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
